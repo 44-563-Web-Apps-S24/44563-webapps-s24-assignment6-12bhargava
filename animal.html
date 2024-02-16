@@ -15,11 +15,10 @@
     <input type ="text" id="guessAnimal" name="form1_nick" autofocus> <br>
 
     <button type="button" onclick="checkAnimal()">Check the guess</button>
-    <input type="button" onclick="checkAnimal()" value="Get values from form">
 </form>
 
 
-<p id="result">This text will be replaced </p>
+<p id="result">Correct: 0 | Wrong: 0</p>
 
 <script> 
 
@@ -31,7 +30,7 @@ function checkAnimal(){
     const secretAnimal = document.getElementById("secretAnimal").value;
     const guessAnimal = document.getElementById("guessAnimal").value;
 
-    if (secretAnimal === guessAnimal) {
+    if (secretAnimal.toLowerCase() === guessAnimal.toLowerCase()) {
         correct++;
         alert("Ruff ruff");
       } else {
@@ -42,18 +41,6 @@ function checkAnimal(){
       // Update the result element
       const resultElement = document.getElementById("result");
       resultElement.innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
-     
-    //console.log("Getting form values")
-    //age = document.getElementById("form1_age").value
-    //nick = document.getElementById("form1_nick").value
-    //confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    //out = document.getElementById("result")
-    //if(confirmed){
-        //out.innerHTML = "Values were confirmed"
-    //} else {
-        //out.innerHTML = "Values were not confirmed"
-    //}
 }
 </script>
 
