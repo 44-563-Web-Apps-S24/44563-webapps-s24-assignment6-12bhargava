@@ -28,15 +28,15 @@ function discount(){
     price = parseFloat(document.getElementById("Price").value)
     count = parseInt(document.getElementById("count").value)
     reduction = parseFloat(document.getElementById("reductions").value)
-    let myOutput="Totals are: ";
+    let toShow = "Totals are: ";
     for (let i = reduction; i < reduction + 5; i++) {
         const discountAmount = price * i / 100;
         const total = (price - reduction) * count;
-        myOutput += `${i}% is ${total.toFixed(1)}; `;
+        toShow += `${i}% is ${total.toFixed(1)}; `;
       }
 
       // Replace the innerHTML for the result element
-      document.getElementById("result").innerHTML = myOutput;
+      document.getElementById("result").innerHTML = toShow;
 
 }
 
