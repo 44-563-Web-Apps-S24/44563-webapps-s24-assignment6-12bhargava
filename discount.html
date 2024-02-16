@@ -32,7 +32,7 @@ function discount(){
     for (let i = reduction; i < reduction + 5; i++) {
         const discountAmount = price * i / 100;
         const total = (price - reduction) * count;
-        toShow += `${i}% is ${total.toFixed(1)}; `;
+        toShow += `${i}% is ${total}; `;
       }
 
       // Replace the innerHTML for the result element
