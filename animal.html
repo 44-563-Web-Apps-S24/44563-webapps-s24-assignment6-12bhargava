@@ -20,7 +20,7 @@
 
 <p id="result">Correct: 0 | Wrong: 0</p>
 <div>
-    <img src="https://github.com/44-563-Web-Apps-S24/44563-webapps-s24-assignment6-12bhargava/blob/main/Image%201.jpg?raw=true" onclick="selectImage()" alt = "Drinks" width="150" height="150">
+    <img id="imageContainer" src="https://github.com/44-563-Web-Apps-S24/44563-webapps-s24-assignment6-12bhargava/blob/main/Image%201.jpg?raw=true"  alt = "Drinks" width="150" height="150" onclick="selectImage()">
 </div>
 
 <script> 
@@ -28,26 +28,26 @@
 let wrong = 0;
 let correct = 0;
 let useImage = 1;
-var link ;
 function selectImage(){
+    const imageContainer = document.getElementById("imageContainer");
 switch(useImage){
 
     case 1:{
-        link = "https://github.com/44-563-Web-Apps-S24/44563-webapps-s24-assignment6-12bhargava/blob/main/Image%201.jpg?raw=true";
+        imageContainer.src = "https://github.com/44-563-Web-Apps-S24/44563-webapps-s24-assignment6-12bhargava/blob/main/Image%201.jpg?raw=true";
         useImage =+1;
         break;
     }
     case 2:{
-        link = "https://github.com/44-563-Web-Apps-S24/44563-webapps-s24-assignment6-12bhargava/blob/main/Image%202.jpg?raw=true";
+        imageContainer.src = "https://github.com/44-563-Web-Apps-S24/44563-webapps-s24-assignment6-12bhargava/blob/main/Image%202.jpg?raw=true";
         useImage =+1;
         break;
     }
     case 3:{
-        link = "https://github.com/44-563-Web-Apps-S24/44563-webapps-s24-assignment6-12bhargava/blob/main/Image%203.jpg?raw=true";
+        imageContainer.src = "https://github.com/44-563-Web-Apps-S24/44563-webapps-s24-assignment6-12bhargava/blob/main/Image%203.jpg?raw=true";
         useImage =+1;
         break;
     }
-    default link ="https://github.com/44-563-Web-Apps-S24/44563-webapps-s24-assignment6-12bhargava/blob/main/Image%203.jpg?raw=true";
+    default : imageContainer.src ="https://github.com/44-563-Web-Apps-S24/44563-webapps-s24-assignment6-12bhargava/blob/main/Image%203.jpg?raw=true";
     break;
      
 }
