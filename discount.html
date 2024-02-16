@@ -14,16 +14,31 @@
     <label for="count">Enter the number of items </label>
     <input type ="number" id="count" value=9 autofocus> <br>
 
-    <label for="reductions">Enter the discount percent</label>
-    <input type ="number" id="reductions" value=9 autofocus> <br>
+    <label for="percent discount">Enter the discount percent</label>
+    <input type ="number" id="reductions" value=5 autofocus> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="discount()" value="Show total">
 </form>
 
 
 <p id="result">This text will be replaced </p>
 
 <script> 
+function discount(){
+    price = parseFloat(document.getElementById("Price").value)
+    count = parseInt(document.getElementById("count").value)
+    reduction = parseFloat(document.getElementById("reductions").value)
+    let myOutput="Totals are: ";
+    for (let i = reduction; i < reduction + 5; i++) {
+        const discountAmount = price * i / 100;
+        const total = (price - reduction) * count;
+        myOutput += `${i}% is ${total.toFixed(1)}; `;
+      }
+
+      // Replace the innerHTML for the result element
+      document.getElementById("result").innerHTML = myOutput;
+
+}
 
 function resolveForm (){
     console.log("Getting form values")
