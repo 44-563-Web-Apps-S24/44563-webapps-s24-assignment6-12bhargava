@@ -5,39 +5,92 @@
  </head>
 <body>
 
-<h1>Discount Calculations Bhargava</h1>
+<h1>Bhargava Reddy Discount Calculations</h1>
 
+<h2>Discount Calculations</h2>
+    <form id="discountForm">
+    <label for="price">Enter price per:</label>
+    <input type="number" id="price" value="10"><br>
+
+    <label for="count">Enter the number of items:</label>
+    <input type="number" id="count" value="9"><br>
+
+    <label for="reductions">Enter the discount percent:</label>
+    <input type="number" id="reductions" value="5"><br>
+
+    <button type="button" onclick="discount()">Show total</button>
+</form>
+<p id="output">This text will be replaced</p>
+
+<form id="operationForm">
+    <label for="sum">Sum</label>
+    <input type="radio" name="operation" value="sum" onclick="chooseOp()"> <br> 
+    <label for="multiply">Multiply</label>
+    <input type="radio" name="operation" value="multiply" onclick="chooseOp()"><br>
+    <label for="exponent">Exponent</label>
+    <input type="radio" name="operation" value="exponent" onclick="chooseOp()"><br>
+</form>
+
+<p id="operationOutput">This text will be replaced</p>
+
+<script>
+    function discount() {
+        var price = document.getElementById("price").value;
+        var count = document.getElementById("count").value;
+        var discountPercent = document.getElementById("reductions").value;
+        var toShow = "Totals are: ";
+
+        for (var i = 0; i < 5; i++) {
+            var discountRate = parseInt(discountPercent) + i;
+            var total = (price * count) * (1 - discountRate / 100);
+            toShow += discountRate + "% is $" + total.toFixed(2) + "; ";
+        }
+
+        document.getElementById("output").innerHTML = toShow;
+    }
+
+    function chooseOp() {
+        var price = parseInt(document.getElementById("price").value);
+        var discount = parseInt(document.getElementById("reductions").value);
+        var selectedOperation = document.querySelector('input[name="operation"]:checked').value;
+
+        var result;
+
+        switch (selectedOperation) {
+            case "sum":
+                result = price + discount;
+                document.getElementById("operationOutput").innerHTML = "Sum of " + price + " and " + discount + " is " + result;
+                break;
+            case "multiply":
+                result = price * discount;
+                document.getElementById("operationOutput").innerHTML = "Product of " + price + " and " + discount + " is " + result;
+                break;
+            case "exponent":
+                result = Math.pow(price, discount);
+                document.getElementById("operationOutput").innerHTML = "Exponent of " + price + " raised to the power of " + discount + " is " + result;
+                break;
+            default:
+                break;
+        }
+    }
+</script><br><br><br>
+
+
+<h2>Getting input</h2>
 <form>
-    <label for="Price">Enter price per</label>
-    <input type ="number" id="Price"  value=10> <br>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
 
-    <label for="count">Enter the number of items </label>
-    <input type ="number" id="count" value=9> <br>
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
-    <label for="percent discount">Enter the discount percent</label>
-    <input type ="number" id="reductions" value=5> <br>
-
-    <input type="button" onclick="discount()" value="Show total">
+    <input type="button" onclick="resolveForm()" value="Get values from form">
 </form>
 
 
 <p id="result">This text will be replaced </p>
 
 <script> 
-function discount(){
-    price = parseFloat(document.getElementById("Price").value)
-    count = parseInt(document.getElementById("count").value)
-    reduction = parseFloat(document.getElementById("reductions").value)
-    let toShow = "Totals are: ";
-    for (let i = reduction; i < reduction + 5; i++) {
-        //const discountAmount = price * i / 100;
-        const total = price * count * (1 - i / 100);
-        toShow += `${i}% is ${total.toFixed(1)}; `;
-      }
-      // Replace the innerHTML for the result element
-      document.getElementById("result").innerHTML = toShow;
-
-}
 
 function resolveForm (){
     console.log("Getting form values")
